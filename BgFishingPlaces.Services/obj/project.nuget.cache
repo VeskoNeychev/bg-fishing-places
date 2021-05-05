@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ryEBHRxBbZCwnA4otVc4QxRXVNn+qSZMvGQlTBY0JQjBpk/jk/9oohYZiXfbDXe5C1H0/bOuSa3XfI9t7b2Ifw==",
+  "dgSpecHash": "7MxtMqjWx1gNZuf892lqYwhKBIRAklnP6ymxqiNNouiOcvpqwwSVanNcOc3CXyVIw3C3GRsp3jHGt/eo0Vthxw==",
   "success": true,
   "projectFilePath": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Services\\BgFishingPlaces.Services.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\tkanc\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\tkanc\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

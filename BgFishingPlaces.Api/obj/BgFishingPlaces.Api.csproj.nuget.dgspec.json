@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Database\\BgFishingPlaces.Database.csproj": {}
+    "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Api\\BgFishingPlaces.Api.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Database\\BgFishingPlaces.Database.csproj": {
+    "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Api\\BgFishingPlaces.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Database\\BgFishingPlaces.Database.csproj",
-        "projectName": "BgFishingPlaces.Database",
-        "projectPath": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Database\\BgFishingPlaces.Database.csproj",
+        "projectUniqueName": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Api\\BgFishingPlaces.Api.csproj",
+        "projectName": "BgFishingPlaces.Api",
+        "projectPath": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Api\\BgFishingPlaces.Api.csproj",
         "packagesPath": "C:\\Users\\tkanc\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Database\\obj\\",
+        "outputPath": "D:\\Projects\\BgFishingPlaces\\BgFishingPlaces.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -21,15 +21,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -41,22 +41,12 @@
         }
       },
       "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.6.3, )"
             }
           },
           "imports": [
@@ -70,7 +60,10 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "NETStandard.Library": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },

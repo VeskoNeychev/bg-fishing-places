@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgFishingPlaces.Database", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgFishingPlaces.Services", "BgFishingPlaces.Services\BgFishingPlaces.Services.csproj", "{C3B48FAA-DC3E-4C12-86E0-56C9A77E45C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgFishingPlaces.Web", "BgFishingPlaces.Web\BgFishingPlaces.Web.csproj", "{AA805B12-DCBB-4347-BDAD-091E14512D46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BgFishingPlaces.Api", "BgFishingPlaces.Api\BgFishingPlaces.Api.csproj", "{6DDFB0D5-8D79-442A-BC25-2DCBA7F8FE66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{C3B48FAA-DC3E-4C12-86E0-56C9A77E45C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3B48FAA-DC3E-4C12-86E0-56C9A77E45C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3B48FAA-DC3E-4C12-86E0-56C9A77E45C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA805B12-DCBB-4347-BDAD-091E14512D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA805B12-DCBB-4347-BDAD-091E14512D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA805B12-DCBB-4347-BDAD-091E14512D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA805B12-DCBB-4347-BDAD-091E14512D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDFB0D5-8D79-442A-BC25-2DCBA7F8FE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDFB0D5-8D79-442A-BC25-2DCBA7F8FE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDFB0D5-8D79-442A-BC25-2DCBA7F8FE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDFB0D5-8D79-442A-BC25-2DCBA7F8FE66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
