@@ -1,0 +1,9 @@
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\bin\Debug\netstandard2.0\BgFishingPlaces.Database.deps.json
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\bin\Debug\netstandard2.0\BgFishingPlaces.Database.dll
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\bin\Debug\netstandard2.0\BgFishingPlaces.Database.pdb
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\obj\Debug\netstandard2.0\BgFishingPlaces.Database.csprojAssemblyReference.cache
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\obj\Debug\netstandard2.0\BgFishingPlaces.Database.AssemblyInfoInputs.cache
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\obj\Debug\netstandard2.0\BgFishingPlaces.Database.AssemblyInfo.cs
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\obj\Debug\netstandard2.0\BgFishingPlaces.Database.csproj.CoreCompileInputs.cache
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\obj\Debug\netstandard2.0\BgFishingPlaces.Database.dll
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Database\obj\Debug\netstandard2.0\BgFishingPlaces.Database.pdb
