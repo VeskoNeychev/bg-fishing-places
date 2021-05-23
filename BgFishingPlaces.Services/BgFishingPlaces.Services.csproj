@@ -8,4 +8,8 @@
     <RootNamespace>BgFishingPlaces.Services</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BgFishingPlaces.Database\BgFishingPlaces.Database.csproj" />
+  </ItemGroup>
+
 </Project>

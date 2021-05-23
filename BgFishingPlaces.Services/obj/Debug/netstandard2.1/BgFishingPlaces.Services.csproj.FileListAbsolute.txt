@@ -7,3 +7,6 @@ D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\obj\Debug\netstandard2.1\Bg
 D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\obj\Debug\netstandard2.1\BgFishingPlaces.Services.csproj.CoreCompileInputs.cache
 D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\obj\Debug\netstandard2.1\BgFishingPlaces.Services.dll
 D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\obj\Debug\netstandard2.1\BgFishingPlaces.Services.pdb
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\bin\Debug\netstandard2.1\BgFishingPlaces.Database.dll
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\bin\Debug\netstandard2.1\BgFishingPlaces.Database.pdb
+D:\Projects\BgFishingPlaces\BgFishingPlaces.Services\obj\Debug\netstandard2.1\BgFishingPlaces.Services.csproj.CopyComplete
