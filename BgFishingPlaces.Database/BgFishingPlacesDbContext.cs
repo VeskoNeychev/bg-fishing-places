@@ -10,6 +10,16 @@ namespace BgFishingPlaces.Database
 
         public DbSet<Role> Roles { get; set; }
 
+        public DbSet<Reservoir> Reservoirs { get; set; }
+
+        public DbSet<Fish> Fishes { get; set; }
+
+        public DbSet<Bait> Baits { get; set; }
+
+        public DbSet<Picture> Pictures { get; set; }
+
+        public DbSet<SimilarName> SimilarNames { get; set; }
+
         public BgFishingPlacesDbContext(DbContextOptions<BgFishingPlacesDbContext> options)
             : base(options)
         {

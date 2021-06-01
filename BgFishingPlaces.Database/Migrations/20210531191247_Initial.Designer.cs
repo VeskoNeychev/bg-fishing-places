@@ -4,14 +4,16 @@ using BgFishingPlaces.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BgFishingPlaces.Database.Migrations
 {
     [DbContext(typeof(BgFishingPlacesDbContext))]
-    partial class BgFishingPlacesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210531191247_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

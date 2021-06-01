@@ -9,7 +9,7 @@ namespace CenturionVoting.Database.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder
-                .Property(x => x.Id)
+                .Property(x => x.UserId)
                 .IsRequired();
 
             builder
@@ -19,7 +19,7 @@ namespace CenturionVoting.Database.Configurations
 
             builder
                 .Property(x => x.Email)
-                .IsRequired();
+                .HasMaxLength(50);
 
             builder
                 .Property(x => x.FirstName)
@@ -38,6 +38,27 @@ namespace CenturionVoting.Database.Configurations
             builder
                 .Property(x => x.PasswordHash)
                 .IsRequired();
+
+            builder
+                .Property(x => x.IsDeleted)
+                .HasDefaultValue(false);
+
+            builder
+                .HasMany(x => x.ReservoirsAdded)
+                .WithOne(x => x.AddedByUser)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasMany(x => x.Roles)
+                .WithMany(x => x.Users);
+
+            builder
+                .HasMany(x => x.SavedReservoirs)
+                .WithOne(x => x.SavedReservoirByUser);
+
+            builder
+                .HasMany(x => x.PicturesAddedByUser)
+                .WithOne(x => x.UserAdded);
         }
     }
 }

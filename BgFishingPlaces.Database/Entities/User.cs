@@ -5,9 +5,7 @@ namespace BgFishingPlaces.Database.Entities
 {
     public class User
     {
-        public Guid Id { get; set; }
-
-        public Guid VoterId { get; set; }
+        public Guid UserId { get; set; }
 
         public string Username { get; set; }
 
@@ -17,10 +15,20 @@ namespace BgFishingPlaces.Database.Entities
 
         public string Email { get; set; }
 
+        public string PhoneNumber { get; set; }
+
         public byte[] PasswordHash { get; set; }
 
         public byte[] PasswordSalt { get; set; }
 
-        public ICollection<Role> Roles { get; set; } = new List<Role>();
+        public bool IsDeleted { get; set; }
+
+        public virtual ICollection<Reservoir> ReservoirsAdded { get; set; } = new List<Reservoir>();
+
+        public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+
+        public virtual ICollection<Reservoir> SavedReservoirs { get; set; } = new List<Reservoir>();
+
+        public virtual ICollection<Picture> PicturesAddedByUser { get; set; } = new List<Picture>();
     }
 }

@@ -11,7 +11,12 @@ namespace CenturionVoting.Database.Configurations
         {
             builder
                 .Property(x => x.Name)
+                .HasMaxLength(20)
                 .IsRequired();
+
+            builder
+                .HasMany(x => x.Users)
+                .WithMany(x => x.Roles);
 
             builder
                 .HasData(
