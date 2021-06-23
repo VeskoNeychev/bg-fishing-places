@@ -9,7 +9,7 @@ namespace CenturionVoting.Database.Configurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder
-                .Property(x => x.UserId)
+                .Property(x => x.Id)
                 .IsRequired();
 
             builder

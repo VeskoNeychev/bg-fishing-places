@@ -10,7 +10,7 @@ namespace BgFishingPlaces.Database.Configuration
         public void Configure(EntityTypeBuilder<Picture> builder)
         {
             builder
-                .Property(x => x.PictureId)
+                .Property(x => x.Id)
                 .IsRequired();
 
             builder
@@ -26,26 +26,6 @@ namespace BgFishingPlaces.Database.Configuration
             builder
                 .Property(x => x.IsDeleted)
                 .HasDefaultValue(false);
-
-            builder
-                .HasOne(x => x.Reservoir)
-                .WithMany(x => x.Pictures)
-                .HasForeignKey(x => x.ReservoirId);
-
-            builder
-                .HasOne(x => x.Fish)
-                .WithMany(x => x.Pictures)
-                .HasForeignKey(x => x.PictureId);
-
-            builder
-                .HasOne(x => x.Bait)
-                .WithOne(x => x.Picture)
-                .HasForeignKey<Picture>(x => x.BaitId);
-
-            builder
-                .HasOne(x => x.UserAdded)
-                .WithMany(x => x.PicturesAddedByUser)
-                .HasForeignKey(x => x.UserAddedId);
         }
     }
 }

@@ -5,21 +5,19 @@ namespace BgFishingPlaces.Database.Entities
 {
     public class Reservoir
     {
-        public Guid ReservoirId { get; set; }
+        public Guid Id { get; set; }
 
-        public string ReservoirName { get; set; }
+        public string Name { get; set; }
 
-        public string ReservoirAddress { get; set; }
+        public string Address { get; set; }
 
-        public string ReservoirCoordinates { get; set; }
+        public string Coordinates { get; set; }
 
         public virtual ICollection<Fish> Fishes { get; set; } = new List<Fish>();
 
         public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
 
         public virtual ICollection<SimilarName> SimilarNames { get; set; } = new List<SimilarName>();
-
-        public Guid AddedByUserId { get; set; }
 
         public virtual User AddedByUser { get; set; }
 
@@ -35,8 +33,6 @@ namespace BgFishingPlaces.Database.Entities
         //public virtual ICollection<Approval> ApprovedByUsers { get; set; } = new List<Approval>();
 
         //public virtual ICollection<Update> LastUpdatedOnByUserId { get; set; } = new List<Update>();
-
-        public Guid SavedReservoirUserId { get; set; }
 
         public virtual User SavedReservoirByUser { get; set; }
 

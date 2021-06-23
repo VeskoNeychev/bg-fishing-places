@@ -10,7 +10,8 @@ namespace BgFishingPlaces.Database.Configuration
         public void Configure(EntityTypeBuilder<Bait> builder)
         {
             builder
-                .HasKey(x => x.BaitId);
+                .Property(x => x.Id)
+                .IsRequired();
 
             builder
                 .Property(x => x.IsDeleted)
@@ -23,7 +24,7 @@ namespace BgFishingPlaces.Database.Configuration
 
             builder
                 .HasMany(x => x.SimilarNames)
-                .WithOne(s => s.Bait)
+                .WithOne(x => x.Bait)
                 .HasForeignKey(x => x.BaitId);
 
             builder

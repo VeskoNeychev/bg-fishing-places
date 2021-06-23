@@ -10,11 +10,11 @@ namespace BgFishingPlaces.Database.Configuration
         public void Configure(EntityTypeBuilder<Fish> builder)
         {
             builder
-                .Property(x => x.FishId)
+                .Property(x => x.Id)
                 .IsRequired();
 
             builder
-                .Property(x => x.FishName)
+                .Property(x => x.Name)
                 .HasMaxLength(40)
                 .IsRequired();
 
@@ -29,16 +29,6 @@ namespace BgFishingPlaces.Database.Configuration
             builder
                 .HasMany(x => x.Reservoirs)
                 .WithMany(x => x.Fishes);
-
-            builder
-                .HasMany(x => x.SimilarNames)
-                .WithOne(x => x.Fish)
-                .HasForeignKey(x => x.FishId);
-
-            builder
-                .HasMany(x => x.Pictures)
-                .WithOne(x => x.Fish)
-                .HasForeignKey(x => x.FishId);
         }
     }
 }

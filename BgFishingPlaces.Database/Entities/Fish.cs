@@ -5,9 +5,9 @@ namespace BgFishingPlaces.Database.Entities
 {
     public class Fish
     {
-        public Guid FishId { get; set; }
+        public Guid Id { get; set; }
 
-        public string FishName { get; set; }
+        public string Name { get; set; }
 
         public bool IsDeleted { get; set; }
 

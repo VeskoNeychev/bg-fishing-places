@@ -5,7 +5,7 @@ namespace BgFishingPlaces.Database.Entities
 {
     public class User
     {
-        public Guid UserId { get; set; }
+        public Guid Id { get; set; }
 
         public string Username { get; set; }
 
@@ -22,6 +22,8 @@ namespace BgFishingPlaces.Database.Entities
         public byte[] PasswordSalt { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public virtual Picture ProfilePicture { get; set; }
 
         public virtual ICollection<Reservoir> ReservoirsAdded { get; set; } = new List<Reservoir>();
 
