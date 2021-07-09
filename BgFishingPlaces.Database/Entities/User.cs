@@ -23,14 +23,16 @@ namespace BgFishingPlaces.Database.Entities
 
         public bool IsDeleted { get; set; }
 
+        public virtual Address Address { get; set; }
+
         public virtual Picture ProfilePicture { get; set; }
 
-        public virtual ICollection<Reservoir> ReservoirsAdded { get; set; } = new List<Reservoir>();
+        public virtual ICollection<Reservoir> AddedReservoirs { get; set; } = new List<Reservoir>();
 
         public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 
-        public virtual ICollection<Reservoir> SavedReservoirs { get; set; } = new List<Reservoir>();
+        //public virtual ICollection<Reservoir> SavedReservoirs { get; set; } = new List<Reservoir>();
 
-        public virtual ICollection<Picture> PicturesAddedByUser { get; set; } = new List<Picture>();
+        //public virtual ICollection<Picture> PicturesAddedByUser { get; set; } = new List<Picture>();
     }
 }

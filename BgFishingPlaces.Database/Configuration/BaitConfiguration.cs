@@ -21,20 +21,6 @@ namespace BgFishingPlaces.Database.Configuration
                 .Property(x => x.Name)
                 .HasMaxLength(40)
                 .IsRequired();
-
-            builder
-                .HasMany(x => x.SimilarNames)
-                .WithOne(x => x.Bait)
-                .HasForeignKey(x => x.BaitId);
-
-            builder
-                .HasMany(x => x.Fishes)
-                .WithMany(s => s.Baits);
-
-            builder
-                .HasOne(x => x.Picture)
-                .WithOne(x => x.Bait)
-                .HasForeignKey<Bait>(x => x.PictureId);
         }
     }
 }

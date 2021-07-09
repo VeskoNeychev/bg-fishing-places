@@ -6,9 +6,9 @@ namespace BgFishingPlaces.Database.Entities
     {
         public Guid Id { get; set; }
 
-        public string PicturePath { get; set; }
+        public string Path { get; set; }
 
-        public string PictureExtension { get; set; }
+        public string Extension { get; set; }
 
         public bool IsDeleted { get; set; }
     }

@@ -21,14 +21,6 @@ namespace BgFishingPlaces.Database.Configuration
             builder
                 .Property(x => x.IsDeleted)
                 .HasDefaultValue(false);
-
-            builder
-                .HasMany(x => x.Baits)
-                .WithMany(x => x.Fishes);
-
-            builder
-                .HasMany(x => x.Reservoirs)
-                .WithMany(x => x.Fishes);
         }
     }
 }

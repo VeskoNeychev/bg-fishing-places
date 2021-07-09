@@ -14,12 +14,12 @@ namespace BgFishingPlaces.Database.Configuration
                 .IsRequired();
 
             builder
-                .Property(x => x.PicturePath)
+                .Property(x => x.Path)
                 .HasMaxLength(256)
                 .IsRequired();
 
             builder
-               .Property(x => x.PictureExtension)
+               .Property(x => x.Extension)
                .HasMaxLength(8)
                .IsRequired();
 

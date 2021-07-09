@@ -9,18 +9,6 @@ namespace BgFishingPlaces.Database.Entities
 
         public string Name { get; set; }
 
-        public string Address { get; set; }
-
-        public string Coordinates { get; set; }
-
-        public virtual ICollection<Fish> Fishes { get; set; } = new List<Fish>();
-
-        public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
-
-        public virtual ICollection<SimilarName> SimilarNames { get; set; } = new List<SimilarName>();
-
-        public virtual User AddedByUser { get; set; }
-
         public string CreatedOn { get; set; }
 
         public bool IsApproved { get; set; }
@@ -29,13 +17,16 @@ namespace BgFishingPlaces.Database.Entities
 
         public int ApprovalCounter { get; set; }
 
+        public string Description { get; set; }
 
-        //public virtual ICollection<Approval> ApprovedByUsers { get; set; } = new List<Approval>();
+        public Guid AddressId { get; set; }
 
-        //public virtual ICollection<Update> LastUpdatedOnByUserId { get; set; } = new List<Update>();
+        public virtual Address Address { get; set; }
 
-        public virtual User SavedReservoirByUser { get; set; }
+        public virtual ICollection<Fish> Fishes { get; set; } = new List<Fish>();
 
-        public string ReservoirDescription { get; set; }
+        public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
+
+        public virtual ICollection<SimilarName> SimilarNames { get; set; } = new List<SimilarName>();
     }
 }

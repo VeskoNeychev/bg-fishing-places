@@ -19,18 +19,6 @@ namespace BgFishingPlaces.Database.Configuration
                 .IsRequired();
 
             builder
-                .Property(x => x.Address)
-                .HasMaxLength(256);
-
-            builder
-                .Property(x => x.Coordinates)
-                .HasMaxLength(80);
-
-            builder
-                .HasMany(x => x.Fishes)
-                .WithMany(x => x.Reservoirs);
-
-            builder
                 .Property(x => x.CreatedOn)
                 .HasMaxLength(20)
                 .IsRequired();
@@ -44,7 +32,7 @@ namespace BgFishingPlaces.Database.Configuration
                 .HasDefaultValue(false);
 
             builder
-                .Property(x => x.ReservoirDescription)
+                .Property(x => x.Description)
                 .HasMaxLength(1024);
         }
     }

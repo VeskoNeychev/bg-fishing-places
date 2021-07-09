@@ -44,21 +44,8 @@ namespace CenturionVoting.Database.Configurations
                 .HasDefaultValue(false);
 
             builder
-                .HasMany(x => x.ReservoirsAdded)
-                .WithOne(x => x.AddedByUser)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder
                 .HasMany(x => x.Roles)
                 .WithMany(x => x.Users);
-
-            builder
-                .HasMany(x => x.SavedReservoirs)
-                .WithOne(x => x.SavedReservoirByUser);
-
-            builder
-                .HasMany(x => x.PicturesAddedByUser)
-                .WithOne(x => x.UserAdded);
         }
     }
 }

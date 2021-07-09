@@ -15,10 +15,6 @@ namespace CenturionVoting.Database.Configurations
                 .IsRequired();
 
             builder
-                .HasMany(x => x.Users)
-                .WithMany(x => x.Roles);
-
-            builder
                 .HasData(
                     new Role
                     {

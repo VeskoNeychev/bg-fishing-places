@@ -21,25 +21,59 @@ namespace BgFishingPlaces.Database.Migrations
 
             modelBuilder.Entity("BaitFish", b =>
                 {
-                    b.Property<int>("BaitsBaitId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("FishesFishId")
+                    b.Property<Guid>("BaitsId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("BaitsBaitId", "FishesFishId");
+                    b.Property<Guid>("FishesId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("FishesFishId");
+                    b.HasKey("BaitsId", "FishesId");
+
+                    b.HasIndex("FishesId");
 
                     b.ToTable("BaitFish");
                 });
 
+            modelBuilder.Entity("BgFishingPlaces.Database.Entities.Address", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(100)
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Coordinates")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Country")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PostCode")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("Street")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int?>("StreetNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Town")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Address");
+                });
+
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Bait", b =>
                 {
-                    b.Property<int>("BaitId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -51,87 +85,80 @@ namespace BgFishingPlaces.Database.Migrations
                         .HasMaxLength(40)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int?>("PictureId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BaitId");
+                    b.HasKey("Id");
 
                     b.ToTable("Baits");
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Fish", b =>
                 {
-                    b.Property<Guid>("FishId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("FishName")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.HasKey("FishId");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Fishes");
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Picture", b =>
                 {
-                    b.Property<Guid>("PictureId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("BaitId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("BaitId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("FishId")
-                        .HasColumnType("int");
+                    b.Property<string>("Extension")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<Guid?>("FishId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<string>("PictureExtension")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
-
-                    b.Property<string>("PicturePath")
+                    b.Property<string>("Path")
                         .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid>("ReservoirId")
+                    b.Property<Guid?>("ReservoirId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserAddedId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("Id");
 
-                    b.HasKey("PictureId");
+                    b.HasIndex("BaitId");
 
-                    b.HasIndex("BaitId")
-                        .IsUnique()
-                        .HasFilter("[BaitId] IS NOT NULL");
+                    b.HasIndex("FishId");
 
                     b.HasIndex("ReservoirId");
-
-                    b.HasIndex("UserAddedId");
 
                     b.ToTable("Pictures");
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Reservoir", b =>
                 {
-                    b.Property<Guid>("ReservoirId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AddedByUserId")
+                    b.Property<Guid>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ApprovalCounter")
@@ -141,6 +168,10 @@ namespace BgFishingPlaces.Database.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
 
                     b.Property<bool>("IsApproved")
                         .ValueGeneratedOnAdd()
@@ -152,31 +183,20 @@ namespace BgFishingPlaces.Database.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<string>("ReservoirAddress")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("ReservoirCoordinates")
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
-                    b.Property<string>("ReservoirDescription")
-                        .HasMaxLength(1024)
-                        .HasColumnType("nvarchar(1024)");
-
-                    b.Property<string>("ReservoirName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid>("SavedReservoirUserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ReservoirId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("AddedByUserId");
+                    b.HasIndex("AddressId")
+                        .IsUnique();
 
-                    b.HasIndex("SavedReservoirUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Reservoirs");
                 });
@@ -206,13 +226,9 @@ namespace BgFishingPlaces.Database.Migrations
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.SimilarName", b =>
                 {
-                    b.Property<int>("SimilarNameId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BaitId")
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("FishId")
                         .HasColumnType("uniqueidentifier");
@@ -230,9 +246,7 @@ namespace BgFishingPlaces.Database.Migrations
                     b.Property<Guid?>("ReservoirId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("SimilarNameId");
-
-                    b.HasIndex("BaitId");
+                    b.HasKey("Id");
 
                     b.HasIndex("FishId");
 
@@ -243,8 +257,11 @@ namespace BgFishingPlaces.Database.Migrations
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.User", b =>
                 {
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -277,27 +294,34 @@ namespace BgFishingPlaces.Database.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("ProfilePictureId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(16)
                         .HasColumnType("nvarchar(16)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("ProfilePictureId");
 
                     b.ToTable("Users");
                 });
 
             modelBuilder.Entity("FishReservoir", b =>
                 {
-                    b.Property<Guid>("FishesFishId")
+                    b.Property<Guid>("FishesId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ReservoirsReservoirId")
+                    b.Property<Guid>("ReservoirsId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("FishesFishId", "ReservoirsReservoirId");
+                    b.HasKey("FishesId", "ReservoirsId");
 
-                    b.HasIndex("ReservoirsReservoirId");
+                    b.HasIndex("ReservoirsId");
 
                     b.ToTable("FishReservoir");
                 });
@@ -307,12 +331,12 @@ namespace BgFishingPlaces.Database.Migrations
                     b.Property<Guid>("RolesId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UsersUserId")
+                    b.Property<Guid>("UsersId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("RolesId", "UsersUserId");
+                    b.HasKey("RolesId", "UsersId");
 
-                    b.HasIndex("UsersUserId");
+                    b.HasIndex("UsersId");
 
                     b.ToTable("RoleUser");
                 });
@@ -321,101 +345,84 @@ namespace BgFishingPlaces.Database.Migrations
                 {
                     b.HasOne("BgFishingPlaces.Database.Entities.Bait", null)
                         .WithMany()
-                        .HasForeignKey("BaitsBaitId")
+                        .HasForeignKey("BaitsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BgFishingPlaces.Database.Entities.Fish", null)
                         .WithMany()
-                        .HasForeignKey("FishesFishId")
+                        .HasForeignKey("FishesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Picture", b =>
                 {
-                    b.HasOne("BgFishingPlaces.Database.Entities.Bait", "Bait")
-                        .WithOne("Picture")
-                        .HasForeignKey("BgFishingPlaces.Database.Entities.Picture", "BaitId");
-
-                    b.HasOne("BgFishingPlaces.Database.Entities.Fish", "Fish")
+                    b.HasOne("BgFishingPlaces.Database.Entities.Bait", null)
                         .WithMany("Pictures")
-                        .HasForeignKey("PictureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BaitId");
 
-                    b.HasOne("BgFishingPlaces.Database.Entities.Reservoir", "Reservoir")
+                    b.HasOne("BgFishingPlaces.Database.Entities.Fish", null)
                         .WithMany("Pictures")
-                        .HasForeignKey("ReservoirId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FishId");
 
-                    b.HasOne("BgFishingPlaces.Database.Entities.User", "UserAdded")
-                        .WithMany("PicturesAddedByUser")
-                        .HasForeignKey("UserAddedId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bait");
-
-                    b.Navigation("Fish");
-
-                    b.Navigation("Reservoir");
-
-                    b.Navigation("UserAdded");
+                    b.HasOne("BgFishingPlaces.Database.Entities.Reservoir", null)
+                        .WithMany("Pictures")
+                        .HasForeignKey("ReservoirId");
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Reservoir", b =>
                 {
-                    b.HasOne("BgFishingPlaces.Database.Entities.User", "AddedByUser")
-                        .WithMany("ReservoirsAdded")
-                        .HasForeignKey("AddedByUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("BgFishingPlaces.Database.Entities.Address", "Address")
+                        .WithOne("Reservoir")
+                        .HasForeignKey("BgFishingPlaces.Database.Entities.Reservoir", "AddressId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BgFishingPlaces.Database.Entities.User", "SavedReservoirByUser")
-                        .WithMany("SavedReservoirs")
-                        .HasForeignKey("SavedReservoirUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.HasOne("BgFishingPlaces.Database.Entities.User", null)
+                        .WithMany("AddedReservoirs")
+                        .HasForeignKey("UserId");
 
-                    b.Navigation("AddedByUser");
-
-                    b.Navigation("SavedReservoirByUser");
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.SimilarName", b =>
                 {
-                    b.HasOne("BgFishingPlaces.Database.Entities.Bait", "Bait")
-                        .WithMany("SimilarNames")
-                        .HasForeignKey("BaitId");
-
-                    b.HasOne("BgFishingPlaces.Database.Entities.Fish", "Fish")
+                    b.HasOne("BgFishingPlaces.Database.Entities.Fish", null)
                         .WithMany("SimilarNames")
                         .HasForeignKey("FishId");
 
-                    b.HasOne("BgFishingPlaces.Database.Entities.Reservoir", "Reservoir")
+                    b.HasOne("BgFishingPlaces.Database.Entities.Reservoir", null)
                         .WithMany("SimilarNames")
                         .HasForeignKey("ReservoirId");
+                });
 
-                    b.Navigation("Bait");
+            modelBuilder.Entity("BgFishingPlaces.Database.Entities.User", b =>
+                {
+                    b.HasOne("BgFishingPlaces.Database.Entities.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId");
 
-                    b.Navigation("Fish");
+                    b.HasOne("BgFishingPlaces.Database.Entities.Picture", "ProfilePicture")
+                        .WithMany()
+                        .HasForeignKey("ProfilePictureId");
 
-                    b.Navigation("Reservoir");
+                    b.Navigation("Address");
+
+                    b.Navigation("ProfilePicture");
                 });
 
             modelBuilder.Entity("FishReservoir", b =>
                 {
                     b.HasOne("BgFishingPlaces.Database.Entities.Fish", null)
                         .WithMany()
-                        .HasForeignKey("FishesFishId")
+                        .HasForeignKey("FishesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BgFishingPlaces.Database.Entities.Reservoir", null)
                         .WithMany()
-                        .HasForeignKey("ReservoirsReservoirId")
+                        .HasForeignKey("ReservoirsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -430,16 +437,19 @@ namespace BgFishingPlaces.Database.Migrations
 
                     b.HasOne("BgFishingPlaces.Database.Entities.User", null)
                         .WithMany()
-                        .HasForeignKey("UsersUserId")
+                        .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BgFishingPlaces.Database.Entities.Address", b =>
+                {
+                    b.Navigation("Reservoir");
+                });
+
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Bait", b =>
                 {
-                    b.Navigation("Picture");
-
-                    b.Navigation("SimilarNames");
+                    b.Navigation("Pictures");
                 });
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.Fish", b =>
@@ -458,11 +468,7 @@ namespace BgFishingPlaces.Database.Migrations
 
             modelBuilder.Entity("BgFishingPlaces.Database.Entities.User", b =>
                 {
-                    b.Navigation("PicturesAddedByUser");
-
-                    b.Navigation("ReservoirsAdded");
-
-                    b.Navigation("SavedReservoirs");
+                    b.Navigation("AddedReservoirs");
                 });
 #pragma warning restore 612, 618
         }

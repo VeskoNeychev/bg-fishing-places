@@ -13,8 +13,6 @@ namespace BgFishingPlaces.Database.Entities
 
         public virtual ICollection<Fish> Fishes { get; set; } = new List<Fish>();
 
-        public virtual ICollection<SimilarName> SimilarNames { get; set; } = new List<SimilarName>();
-
-        public virtual Picture Picture { get; set; }
+        public virtual ICollection<Picture> Pictures { get; set; }
     }
 }
