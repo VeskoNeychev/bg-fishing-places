@@ -19,7 +19,7 @@ namespace CenturionVoting.Database.Configurations
 
             builder
                 .Property(x => x.Email)
-                .IsRequired();
+                .HasMaxLength(50);
 
             builder
                 .Property(x => x.FirstName)
@@ -38,6 +38,14 @@ namespace CenturionVoting.Database.Configurations
             builder
                 .Property(x => x.PasswordHash)
                 .IsRequired();
+
+            builder
+                .Property(x => x.IsDeleted)
+                .HasDefaultValue(false);
+
+            builder
+                .HasMany(x => x.Roles)
+                .WithMany(x => x.Users);
         }
     }
 }

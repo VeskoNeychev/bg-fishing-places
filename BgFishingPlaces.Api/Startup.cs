@@ -52,6 +52,20 @@ namespace BgFishingPlaces.Api
             {
                 endpoints.MapControllers();
             });
+
+            UpgradeDatabase(app);
+        }
+
+        private void UpgradeDatabase(IApplicationBuilder app)
+        {
+            using var serviceScope = app.ApplicationServices.CreateScope();
+
+            var context = serviceScope.ServiceProvider.GetService<BgFishingPlacesDbContext>();
+
+            if (context != null && context.Database != null)
+            {
+                context.Database.Migrate();
+            }
         }
     }
 }

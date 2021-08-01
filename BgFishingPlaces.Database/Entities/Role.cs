@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace BgFishingPlaces.Database.Entities
 {
@@ -7,5 +9,7 @@ namespace BgFishingPlaces.Database.Entities
         public Guid Id { get; set; }
 
         public string Name { get; set; }
+
+        public ICollection<User> Users { get; set; } = new List<User>();
     }
 }

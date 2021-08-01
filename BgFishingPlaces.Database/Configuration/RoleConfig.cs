@@ -11,6 +11,7 @@ namespace CenturionVoting.Database.Configurations
         {
             builder
                 .Property(x => x.Name)
+                .HasMaxLength(20)
                 .IsRequired();
 
             builder
